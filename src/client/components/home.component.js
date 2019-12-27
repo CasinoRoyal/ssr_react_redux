@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Home = () => {
-  return {
-    <div className="home">Home component</div>
-  }
+  return (
+    <Fragment>
+      <div>HOmE component</div>
+      <button onClick={() => alert('cliiiick')}>Click</button>
+    </Fragment>
+  )
 }
 export default Home;

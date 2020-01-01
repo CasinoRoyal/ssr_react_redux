@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 const Header = ({ auth }) => {
   console.log(auth)
 
-  const authButton = auth ? (
-    <a href="/api/logout">Logout</a>
+  const authButton = auth.currentUser ? (
+    <a className="navbar-item" href="/api/logout">Logout</a>
   ) : (
-    <a href="/api/auth/google">Login</a>
+    <a className="navbar-item" href="/api/auth/google">Login</a>
   );
 
   return(
-    <div>
-      <div>
-        <Link to="/">SSR</Link>
+    <div className="navbar">
+      <div className="navbar-brand">
+        <Link className="navbar-item" to="/">SSR</Link>
       </div>
-      <Link to="/users">Users</Link>
-      <Link to="/admins">Admins</Link>
+      <Link className="navbar-item" to="/users">Users</Link>
+      <Link className="navbar-item" to="/admins">Admins</Link>
       {authButton}
     </div>
   )

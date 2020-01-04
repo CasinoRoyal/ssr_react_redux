@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { fetchUsers }  from '../redux/actions/actions';
 
 class UsersList extends Component {
@@ -14,9 +15,20 @@ class UsersList extends Component {
     ));
   }
 
+  renderHead() {
+    return(
+      <Helmet>
+        <title>{`${this.props.users.length} users`}</title>
+        <meta property="og:title" content="App users list" />
+      </Helmet>
+    );
+  }
+
   render() {
     return(
       <div>
+        { this.renderHead() }
+        
         <h2>List of users:</h2>
         <ul>
           {this.renderUsers()}
